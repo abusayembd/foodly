@@ -4,7 +4,7 @@ import 'package:foodly_flutter/constants/constants.dart';
 import 'package:foodly_flutter/views/entrypoint.dart';
 import 'package:get/get.dart';
 
-Widget defaultHome = const MainScreen();
+Widget defaultHome =  MainScreen();
 void main() {
   runApp(const MyApp());
 }

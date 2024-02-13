@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:foodly_flutter/views/cart/cart_page.dart';
+import 'package:foodly_flutter/views/home/home_page.dart';
+import 'package:foodly_flutter/views/profile/profile_page.dart';
+import 'package:foodly_flutter/views/search/search_page.dart';
 import 'package:get/get.dart';
 
 import '../constants/constants.dart';
 import '../controllers/tab_index_controller.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+  MainScreen({super.key});
+
+  final List<Widget> pageList = <Widget>[
+    const HomePage(),
+    const SearchPage(),
+    const CartPage(),
+    const ProfilePage()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +26,7 @@ class MainScreen extends StatelessWidget {
       () => Scaffold(
           body: Stack(
         children: <Widget>[
-          Container(
-            height: height,
-            width: width,
-            color: kPrimary,
-          ),
+          pageList[controller.tabIndex],
           Align(
             alignment: Alignment.bottomCenter,
             child: Theme(
